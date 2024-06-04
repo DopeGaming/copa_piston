@@ -24,7 +24,7 @@ for i in range(0, len(participants), num_columns):
         if i + j < len(participants):
             participant = participants[i + j]
             with col:
-                st.image(participant["photo"], width=150)  # Adjust width to make the photos smaller
+                st.image(participant["photo"], width=150)
                 st.subheader(participant["name"])
                 st.write(participant["text"])
 

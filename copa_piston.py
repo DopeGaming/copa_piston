@@ -1,5 +1,3 @@
-#Your current IP address (77.243.23.105) has been added to enable local connectivity. Add another later in
-#mongodb+srv://ocramayora:Arsic969!@cluster0.ckteqa9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 import streamlit as st
 from PIL import Image
 import base64
@@ -17,7 +15,6 @@ st.set_page_config(
 )
 
 car_image_path = "Images/rayo_mcqueen.jpg"
-
 car_image_base64 = get_base64_image(car_image_path)
 
 st.markdown(
@@ -33,11 +30,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-#Title
 st.title("Bienvenidos a la copa Piston! 🍻🚗")
 st.subheader("El juego definitivo del los verdaderos heroes del verano")
 
-# Introduction text
+# Sidebar navigation
+# st.sidebar.title("Navigation")
+# st.sidebar.markdown("""
+# - [Normas](1_Normas)
+# - [Participantes](2_Participantes)
+# - [Clasificación](3_Clasificación)
+# - [Formulario](4_Formulario)
+# """)
+
 st.markdown("""
 <style>
 .justified-text {

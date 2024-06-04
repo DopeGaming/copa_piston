@@ -2,6 +2,9 @@ import streamlit as st
 from pymongo import MongoClient
 import datetime
 
+# Set page configuration
+st.set_page_config(page_title="Registrar Puntos", page_icon="📋")
+
 # MongoDB setup
 username = "ocramayora"
 password = "Arsic969!"
@@ -53,3 +56,31 @@ if st.button("Enviar"):
     }
     collection.insert_one(data)
     st.success("¡Puntos registrados exitosamente!")
+
+# Custom CSS for additional styling
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #222222;
+        color: #ffffff;
+    }
+    .stApp header {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .stApp footer {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .stMarkdownContainer p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)

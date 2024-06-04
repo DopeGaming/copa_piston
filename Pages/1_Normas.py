@@ -8,7 +8,6 @@ def get_base64_image(image_path):
     return base64_str
 
 car_image_path = "Images/saly.jpg"
-
 car_image_base64 = get_base64_image(car_image_path)
 
 st.markdown(
