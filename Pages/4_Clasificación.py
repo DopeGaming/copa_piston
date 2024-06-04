@@ -1,34 +1,46 @@
 import streamlit as st
 from pymongo import MongoClient
-import pandas as pd
-
-# MongoDB setup
-client = MongoClient("your_mongodb_uri")
-db = client["copa_piston"]
-collection = db["daily_points"]
+from collections import defaultdict
 
 # Set page configuration
-st.set_page_config(page_title="Tabla de Clasificación", page_icon="🏆")
+st.set_page_config(page_title="Leaderboard", page_icon="🏆")
 
-# Title
-st.title("Tabla de Clasificación 🏆")
+# MongoDB setup
+username = "ocramayora"
+password = "Arsic969!"
+cluster_address = "cluster0.ckteqa9.mongodb.net"
 
-# Fetch data from MongoDB
-data = list(collection.find())
+# Connection string with credentials
+connection_string = f"mongodb+srv://{username}:{password}@{cluster_address}/?retryWrites=true&w=majority"
 
-# Calculate total points for each participant
-leaderboard = {}
-for entry in data:
-    participant = entry["participant"]
-    points = entry["points"]
-    if participant in leaderboard:
-        leaderboard[participant] += points
+try:
+    client = MongoClient(connection_string)
+    db = client["copa_piston"]
+    collection = db["daily_points"]
+    st.success("Connected to MongoDB successfully!")
+except Exception as e:
+    st.error(f"Failed to connect to MongoDB: {e}")
+
+st.title("Leaderboard 🏆")
+
+# Aggregating points for each participant
+try:
+    pipeline = [
+        {
+            "$group": {
+                "_id": "$participant",
+                "total_points": {"$sum": "$points"}
+            }
+        },
+        {"$sort": {"total_points": -1}}
+    ]
+    leaderboard = list(collection.aggregate(pipeline))
+    
+    st.subheader("Puntuación Total por Participante")
+    if leaderboard:
+        for idx, entry in enumerate(leaderboard, start=1):
+            st.write(f"{idx}. **{entry['_id']}**: {entry['total_points']} puntos")
     else:
-        leaderboard[participant] = points
-
-# Convert leaderboard to a DataFrame
-df = pd.DataFrame(list(leaderboard.items()), columns=["Participant", "Total Points"])
-df = df.sort_values(by="Total Points", ascending=False)
-
-# Display the leaderboard
-st.dataframe(df)
+        st.write("No hay datos disponibles.")
+except Exception as e:
+    st.error(f"Error al obtener la tabla de clasificación: {e}")

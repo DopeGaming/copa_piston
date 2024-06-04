@@ -1,30 +1,25 @@
 import streamlit as st
 
-# Set page configuration
 st.set_page_config(page_title="Participantes de la Copa Piston", page_icon="👥")
 
-# Title
 st.title("Participantes de la Copa Piston 2024 👥")
 
-# Participants data
 participants = [
-    {"name": "Alvaro", "photo": "Images/alvarito.jpg", "text": "“Gasté un montón de dinero en coches, mujeres y alcohol. El resto simplemente lo malgasté” -George Best"},
-    # {"name": "Marco", "photo": "Images/participant2.jpg", "text": "Texto del participante 2."},
-    # {"name": "Xavi", "photo": "Images/participant3.jpg", "text": "Texto del participante 3."},
-    {"name": "Jaime", "photo": "Images/foto_suja_graciosa.jpg", "text": "El papá de de tu papá de tu papá 🦈//Me creo Piolin mi gata me reclama"},
-    # {"name": "Joel", "photo": "Images/participant5.jpg", "text": "Texto del participante 5."},
+    {"name": "flicki flacka", "photo": "Images/alvarito.jpg", "text": "“Gasté un montón de dinero en coches, mujeres y alcohol. El resto simplemente lo malgasté” -George Best"},
+    {"name": "Pelee", "photo": "Images/marquimetro.jpg", "text": "Por mis venas corre el agua con un poco de rrrrron cola"},
+    {"name": "BigJavs", "photo": "Images/xavi1.jpg", "text": "El dia que el amor se convierta en alcohol, me lo tomare en serio"},
+    {"name": "Suja", "photo": "Images/foto_suja_graciosa.jpg", "text": "El papá de de tu papá de tu papá 🦈//Me creo Piolin mi gata me reclama"},
+    {"name": "Joel", "photo": "Images/joel1.jpg", "text": "Yo lo soñé"},
     {"name": "Monta", "photo": "Images/monta.jpg", "text": "ESTO NO ES UN JUEGO! Hemos venido a competir. Solo para perracos🐕"},
-    # {"name": "Perez", "photo": "Images/participant7.jpg", "text": "Texto del participante 7."},
-    # {"name": "Cater", "photo": "Images/participant8.jpg", "text": "Texto del participante 8."},
-    # {"name": "Juan", "photo": "Images/participant9.jpg", "text": "Texto del participante 9."},
-    # {"name": "Jordi", "photo": "Images/participant10.jpg", "text": "Texto del participante 10."},
-    # {"name": "Folch", "photo": "Images/participant11.jpg", "text": "Texto del participante 11."}
+    {"name": "Perez", "photo": "Images/perez.jpg", "text": "Que vamos a hacer?? Follar, follar y follar"},
+    {"name": "Cater", "photo": "Images/cater1.jpg", "text": "En busca del One Piece"},
+    {"name": "Juan3c3k3", "photo": "Images/juanpa.jpg", "text": "Texto del participante 9."},
+    {"name": "Jorge", "photo": "Images/jordi1.jpg", "text": "Deportista iniciándome en el mundo del alcoholismo y el mundo femenino"},
+    {"name": "Folch", "photo": "Images/folch1.jpg", "text": "Texto del participante 11."}
 ]
 
-# Number of columns to display
 num_columns = 3
 
-# Display participants
 for i in range(0, len(participants), num_columns):
     cols = st.columns(num_columns)
     for j, col in enumerate(cols):
@@ -35,7 +30,6 @@ for i in range(0, len(participants), num_columns):
                 st.subheader(participant["name"])
                 st.write(participant["text"])
 
-# Custom CSS for additional styling
 st.markdown(
     """
     <style>

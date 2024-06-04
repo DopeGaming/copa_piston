@@ -1,6 +1,30 @@
 import streamlit as st
+from PIL import Image
+import base64
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        base64_str = base64.b64encode(img_file.read()).decode()
+    return base64_str
 
 st.set_page_config(page_title="Normas de la Copa Piston", page_icon="⚡🏆")
+
+car_image_path = "Images/saly.jpg"
+
+car_image_base64 = get_base64_image(car_image_path)
+
+st.markdown(
+    f"""
+    <div style="background-image: url('data:image/jpeg;base64,{car_image_base64}'); 
+                background-size: cover; 
+                height: 300px; 
+                display: flex; 
+                justify-content: center; 
+                align-items: center;">
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
 
 st.title("Normas de la copa pistón 2024 ⚡🏆")
 

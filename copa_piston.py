@@ -1,3 +1,5 @@
+#Your current IP address (77.243.23.105) has been added to enable local connectivity. Add another later in
+#mongodb+srv://ocramayora:Arsic969!@cluster0.ckteqa9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 import streamlit as st
 from PIL import Image
 import base64

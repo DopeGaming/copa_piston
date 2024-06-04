@@ -2,25 +2,33 @@ import streamlit as st
 from pymongo import MongoClient
 import datetime
 
-# MongoDB setup
-client = MongoClient("your_mongodb_uri")
-db = client["copa_piston"]
-collection = db["daily_points"]
-
 # Set page configuration
 st.set_page_config(page_title="Registrar Puntos", page_icon="📋")
 
-# Title
+# MongoDB setup
+username = "ocramayora"
+password = "Arsic969!"
+cluster_address = "cluster0.ckteqa9.mongodb.net"
+
+# Connection string with credentials
+connection_string = f"mongodb+srv://{username}:{password}@{cluster_address}/?retryWrites=true&w=majority"
+
+try:
+    client = MongoClient(connection_string)
+    db = client["copa_piston"]
+    collection = db["daily_points"]
+    st.success("Connected to MongoDB successfully!")
+except Exception as e:
+    st.error(f"Failed to connect to MongoDB: {e}")
+
 st.title("Registrar Puntos Diarios 📋")
 
-# Participant selection
 participants = [
-    "Alvaro", "Marco", "Xavi", "Suja", "Joel", "Monta", "Perez", "Cater", "Juan", "Jordi", "Folch"
+    "Alvarito", "Marco", "Xavi", "Suja", "Joel", "Monta", "Perez", "Cater", "Juan", "Jordi", "Folch"
 ]
 
 participant = st.selectbox("Selecciona tu nombre", participants)
 
-# Point system checkboxes
 st.subheader("Sistema de Puntos")
 
 points = {
@@ -30,16 +38,21 @@ points = {
     "Deporte": 3, "Hacerse a una ex o alguien a quien has querido mucho (preguntar) sino DESCALIFICADO DIRECTO": 0
 }
 
-accomplishments = {task: st.checkbox(task) for task in points}
+# Add a number input for each activity
+accomplishments = {task: st.number_input(task, min_value=0, step=1, value=0) for task in points}
 
-# Submit button
 if st.button("Enviar"):
-    total_points = sum(points[task] for task in accomplishments if accomplishments[task])
+    # Calculate the total points
+    total_points = sum(points[task] * accomplishments[task] for task in accomplishments if accomplishments[task] > 0)
+    
+    # Get the current date and time
+    current_date = datetime.datetime.now()
+    
     data = {
         "participant": participant,
-        "date": datetime.datetime.now(),
+        "date": current_date,  # Store the current date and time
         "points": total_points,
-        "details": {task: accomplishments[task] for task in accomplishments}
+        "details": accomplishments  # Store the number of times each task was performed
     }
     collection.insert_one(data)
     st.success("¡Puntos registrados exitosamente!")
