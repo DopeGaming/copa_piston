@@ -16,7 +16,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-car_image_path = "C:/Users/Marco/Desktop/Data For Change/copa_piston/Images/rayo_mcqueen.jpg"
+car_image_path = "Images/rayo_mcqueen.jpg"
 
 car_image_base64 = get_base64_image(car_image_path)
 
