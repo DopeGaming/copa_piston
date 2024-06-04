@@ -2,9 +2,6 @@ import streamlit as st
 from pymongo import MongoClient
 import datetime
 
-# Set page configuration
-st.set_page_config(page_title="Registrar Puntos", page_icon="📋")
-
 # MongoDB setup
 username = "ocramayora"
 password = "Arsic969!"

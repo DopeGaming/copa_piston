@@ -2,9 +2,6 @@ import streamlit as st
 from pymongo import MongoClient
 from collections import defaultdict
 
-# Set page configuration
-st.set_page_config(page_title="Leaderboard", page_icon="🏆")
-
 # MongoDB setup
 username = "ocramayora"
 password = "Arsic969!"

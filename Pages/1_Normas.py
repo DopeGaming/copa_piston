@@ -7,8 +7,6 @@ def get_base64_image(image_path):
         base64_str = base64.b64encode(img_file.read()).decode()
     return base64_str
 
-st.set_page_config(page_title="Normas de la Copa Piston", page_icon="⚡🏆")
-
 car_image_path = "Images/saly.jpg"
 
 car_image_base64 = get_base64_image(car_image_path)

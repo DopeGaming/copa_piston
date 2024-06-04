@@ -1,7 +1,5 @@
 import streamlit as st
 
-st.set_page_config(page_title="Participantes de la Copa Piston", page_icon="👥")
-
 st.title("Participantes de la Copa Piston 2024 👥")
 
 participants = [
