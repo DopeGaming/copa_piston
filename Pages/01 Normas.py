@@ -1,14 +1,16 @@
 import streamlit as st
 from PIL import Image
 import base64
-
-def get_base64_image(image_path):
-    with open(image_path, "rb") as img_file:
-        base64_str = base64.b64encode(img_file.read()).decode()
-    return base64_str
+import datetime
 
 def main():
     car_image_path = "Images/saly.jpg"
+    
+    def get_base64_image(image_path):
+        with open(image_path, "rb") as img_file:
+            base64_str = base64.b64encode(img_file.read()).decode()
+        return base64_str
+    
     car_image_base64 = get_base64_image(car_image_path)
 
     st.markdown(
@@ -82,33 +84,6 @@ def main():
 
     st.markdown("---")
     st.write("**Nota:** La honestidad y el respeto son fundamentales para mantener la integridad de la competición. ¡Disfruten y jueguen limpio!")
-
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #222222;
-            color: #ffffff;
-        }
-        .stApp header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .stApp footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .stMarkdownContainer p {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
 
 if __name__ == "__main__":
     main()

@@ -29,35 +29,35 @@ def main():
                     st.subheader(participant["name"])
                     st.write(participant["text"])
 
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #222222;
-            color: #ffffff;
-        }
-        .stApp header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .stApp footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .stMarkdownContainer p {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-        .stMarkdownContainer img {
-            border-radius: 10px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    # st.markdown(
+    #     """
+    #     <style>
+    #     .stApp {
+    #         background-color: #222222;
+    #         color: #ffffff;
+    #     }
+    #     .stApp header {
+    #         background: rgba(0, 0, 0, 0.7);
+    #         padding: 10px;
+    #         border-radius: 10px;
+    #     }
+    #     .stApp footer {
+    #         background: rgba(0, 0, 0, 0.7);
+    #         padding: 10px;
+    #         border-radius: 10px;
+    #         text-align: center;
+    #     }
+    #     .stMarkdownContainer p {
+    #         text-align: justify;
+    #         text-justify: inter-word;
+    #     }
+    #     .stMarkdownContainer img {
+    #         border-radius: 10px;
+    #     }
+    #     </style>
+    #     """,
+    #     unsafe_allow_html=True
+    # )
 
 if __name__ == "__main__":
     main()
