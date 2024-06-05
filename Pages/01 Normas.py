@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import base64
 import datetime
-
+import streamlit.components.v1 as components
 def main():
     car_image_path = "Images/saly.jpg"
     
