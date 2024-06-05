@@ -1,15 +1,13 @@
 import streamlit as st
 from pymongo import MongoClient
 
-# MongoDB setup
-username = "ocramayora"
-password = "Arsic969!"
-cluster_address = "cluster0.ckteqa9.mongodb.net"
-
-# Connection string with credentials
-connection_string = f"mongodb+srv://{username}:{password}@{cluster_address}/?retryWrites=true&w=majority"
-
 def main():
+    # MongoDB setup
+    username = "ocramayora"
+    password = "Arsic969!"
+    cluster_address = "cluster0.ckteqa9.mongodb.net"
+    connection_string = f"mongodb+srv://{username}:{password}@{cluster_address}/?retryWrites=true&w=majority"
+    
     try:
         client = MongoClient(connection_string)
         db = client["copa_piston"]
