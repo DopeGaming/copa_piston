@@ -2,6 +2,7 @@
 import streamlit as st
 from PIL import Image
 import base64
+from Pages import Normas_01, Participantes_02, Clasificacion_03, Formulario_04
 
 def get_base64_image(image_path):
     with open(image_path, "rb") as img_file:
@@ -11,10 +12,22 @@ def get_base64_image(image_path):
 st.set_page_config(
     page_title="Intro Copa Piston",
     page_icon="🍻🚗",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
+# Sidebar navigation
+pages = {
+    "Normas de la Copa Pistón 2024": Normas_01,
+    "Participantes": Participantes_02,
+    "Clasificación": Clasificacion_03,
+    "Formulario": Formulario_04
+}
+
+selection = st.sidebar.radio("Navegación", list(pages.keys()))
+page = pages[selection]
+
+# Header image
 car_image_path = "Images/rayo_mcqueen.jpg"
 car_image_base64 = get_base64_image(car_image_path)
 
@@ -31,36 +44,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Bienvenidos a la copa Piston! 🍻🚗")
-st.subheader("El juego definitivo del los verdaderos heroes del verano")
+# Render selected page
+page.main()
 
-st.markdown("""
-<style>
-.justified-text {
-    text-align: justify;
-    text-justify: inter-word;
-}
-</style>
-<div class="justified-text">
-    La competición donde solo unos pocos podrán salir victoriosos, pero no les saldrá barato. ¿Quién será nuestro héroe número 1 de la edición 2024?
-</div>
-""", unsafe_allow_html=True)
-
-st.header("¿Cómo Funciona?")
-st.markdown("""
-<div class="justified-text">
-            
-Esta atrevida competición se basa en un sistema de puntos en el cual se decidirán los ganadores en base a quién obtenga más. 
-Pero no será de la noche a la mañana, la competición dura del 03/06/2024 hasta las 8:00h del 15/09/2024. 
-
-¡Estad atentos para más detalles y preparaos para uno de los veranos más locos de vuestras vidas!
-
-</div>
-""", unsafe_allow_html=True)
-
+# Footer
 st.markdown("---")
 st.write("Creado por Sitges man y editado por Marco. Bebed responsablemente y disfrutad de la experiencia!")
 
+# Custom CSS
 st.markdown(
     """
     <style>

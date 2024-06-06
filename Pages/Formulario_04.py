@@ -1,7 +1,8 @@
+# Pages/04_Formulario.py
 import streamlit as st
 from pymongo import MongoClient
 import datetime
-import streamlit.components.v1 as components
+
 def main():
     # MongoDB setup
     username = "ocramayora"
@@ -52,34 +53,6 @@ def main():
         }
         collection.insert_one(data)
         st.success("¡Puntos registrados exitosamente!")
-
-    # Custom CSS for additional styling
-    # st.markdown(
-    #     """
-    #     <style>
-    #     .stApp {
-    #         background-color: #222222;
-    #         color: #ffffff;
-    #     }
-    #     .stApp header {
-    #         background: rgba(0, 0, 0, 0.7);
-    #         padding: 10px;
-    #         border-radius: 10px;
-    #     }
-    #     .stApp footer {
-    #         background: rgba(0, 0, 0, 0.7);
-    #         padding: 10px;
-    #         border-radius: 10px;
-    #         text-align: center;
-    #     }
-    #     .stMarkdownContainer p {
-    #         text-align: justify;
-    #         text-justify: inter-word;
-    #     }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
 
 if __name__ == "__main__":
     main()
