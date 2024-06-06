@@ -1,4 +1,3 @@
-# copapiston.py
 import streamlit as st
 from PIL import Image
 import base64
@@ -27,24 +26,23 @@ pages = {
 selection = st.sidebar.radio("Navegación", list(pages.keys()))
 page = pages[selection]
 
-# Header image
-car_image_path = "Images/rayo_mcqueen.jpg"
-car_image_base64 = get_base64_image(car_image_path)
-
-st.markdown(
-    f"""
-    <div style="background-image: url('data:image/jpeg;base64,{car_image_base64}'); 
-                background-size: cover; 
-                height: 300px; 
-                display: flex; 
-                justify-content: center; 
-                align-items: center;">
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
 # Render selected page
+if selection == "Normas de la Copa Pistón 2024":
+    car_image_path = "Images/rayo_mcqueen.jpg"
+    car_image_base64 = get_base64_image(car_image_path)
+    st.markdown(
+        f"""
+        <div style="background-image: url('data:image/jpeg;base64,{car_image_base64}'); 
+                    background-size: cover; 
+                    height: 300px; 
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center;">
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+
 page.main()
 
 # Footer
