@@ -13,9 +13,9 @@ def main():
         {"name": "Monta", "photo": "./Images/monta.jpg", "text": "ESTO NO ES UN JUEGO! Hemos venido a competir. Solo para perracos🐕"},
         {"name": "Perez", "photo": "./Images/perez.jpg", "text": "Que vamos a hacer?? Follar, follar y follar"},
         {"name": "Cater", "photo": "./Images/cater1.jpg", "text": "En busca del One Piece"},
-        {"name": "Juan3c3k3", "photo": "./Images/juanpa.jpg", "text": "Texto del participante 9."},
         {"name": "Jorge", "photo": "./Images/jordi1.jpg", "text": "Deportista iniciándome en el mundo del alcoholismo y el mundo femenino"},
-        {"name": "Folch", "photo": "./Images/folch1.jpg", "text": "Texto del participante 11."}
+        {"name": "Folch", "photo": "./Images/folch1.jpg", "text": "Pienso, luego existo"},
+        {"name": "Juan3c3k3", "photo": "./Images/juanpa.jpg", "text": "Hasta el rabo, todo es toro"},
     ]
 
     num_columns = 3
