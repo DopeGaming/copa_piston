@@ -20,6 +20,7 @@ def main():
     st.title("Registrar Puntos Diarios 📋")
 
     participants = [
+        "Escoge Tu participante",  # Placeholder option
         "Alvarito", "Marco", "Xavi", "Suja", "Joel", "Monta", "Perez", "Cater", "Juan", "Jordi", "Folch"
     ]
 
@@ -38,20 +39,24 @@ def main():
     accomplishments = {task: st.number_input(task, min_value=0, step=1, value=0) for task in points}
 
     if st.button("Enviar"):
-        # Calculate the total points, including negative points
-        total_points = sum(points[task] * accomplishments[task] for task in accomplishments)
+        # Check if a participant has been selected
+        if participant == "Escoge Tu participante":
+            st.error("Por favor, selecciona un participante.")
+        else:
+            # Calculate the total points, including negative points
+            total_points = sum(points[task] * accomplishments[task] for task in accomplishments)
 
-        # Get the current date and time
-        current_date = datetime.datetime.now()
+            # Get the current date and time
+            current_date = datetime.datetime.now()
 
-        data = {
-            "participant": participant,
-            "date": current_date,  # Store the current date and time
-            "points": total_points,
-            "details": accomplishments  # Store the number of times each task was performed
-        }
-        collection.insert_one(data)
-        st.success("¡Puntos registrados exitosamente!")
+            data = {
+                "participant": participant,
+                "date": current_date,  # Store the current date and time
+                "points": total_points,
+                "details": accomplishments  # Store the number of times each task was performed
+            }
+            collection.insert_one(data)
+            st.success("¡Puntos registrados exitosamente!")
 
 if __name__ == "__main__":
     main()
