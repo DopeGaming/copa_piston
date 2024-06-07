@@ -1,6 +1,6 @@
-# Pages/03_Clasificacion.py
 import streamlit as st
 from pymongo import MongoClient
+import pandas as pd
 
 def main():
     # MongoDB setup
@@ -19,13 +19,14 @@ def main():
 
     st.title("Leaderboard 🏆")
 
-    # Aggregating points for each participant
+    # Aggregating points and details for each participant
     try:
         pipeline = [
             {
                 "$group": {
                     "_id": "$participant",
-                    "total_points": {"$sum": "$points"}
+                    "total_points": {"$sum": "$points"},
+                    "details": {"$push": "$details"}
                 }
             },
             {"$sort": {"total_points": -1}}
@@ -34,8 +35,21 @@ def main():
 
         st.subheader("Puntuación Total por Participante")
         if leaderboard:
-            for idx, entry in enumerate(leaderboard, start=1):
-                st.write(f"{idx}. **{entry['_id']}**: {entry['total_points']} puntos")
+            # Create a detailed leaderboard
+            detailed_data = []
+            for entry in leaderboard:
+                participant = entry['_id']
+                total_points = entry['total_points']
+                details = pd.DataFrame(entry['details']).sum().to_dict()  # Summing up the details
+                
+                detailed_data.append({
+                    "Participante": participant,
+                    "Total Puntos": total_points,
+                    **details
+                })
+            
+            detailed_df = pd.DataFrame(detailed_data)
+            st.dataframe(detailed_df)
         else:
             st.write("No hay datos disponibles.")
     except Exception as e:
