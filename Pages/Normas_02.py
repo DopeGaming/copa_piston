@@ -6,29 +6,12 @@ import base64
 def main():
     car_image_path = "Images/saly.jpg"
     
-    def get_base64_image(image_path):
-        with open(image_path, "rb") as img_file:
-            base64_str = base64.b64encode(img_file.read()).decode()
-        return base64_str
-    
-    car_image_base64 = get_base64_image(car_image_path)
-
-    st.markdown(
-        f"""
-        <div style="background-image: url('data:image/jpeg;base64,{car_image_base64}'); 
-                    background-size: cover; 
-                    height: 300px; 
-                    display: flex; 
-                    justify-content: center; 
-                    align-items: center;">
-        </div>
-        """, 
-        unsafe_allow_html=True
-    )
-
-    st.title("Normas de la copa pistón 2024 ⚡🏆")
-
+    st.title("Normas de la copa pistón 2024 ⚡")
     st.subheader("Detalles del evento")
+
+    car_image = Image.open(car_image_path)
+    st.image(car_image, use_column_width=True)
+
 
     st.write("""
     Esta competición veraniega arranca el lunes día 3 de junio 🗓 a las 8:00h ⏰ y finaliza el 15 🗓 de septiembre a las 8:00 ⏰.
