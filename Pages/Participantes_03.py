@@ -8,7 +8,7 @@ def main():
         {"name": "flicki flacka", "photo": "./Images/alvarito.jpg", "text": "“Gasté un montón de dinero en coches, mujeres y alcohol. El resto simplemente lo malgasté” -George Best"},
         {"name": "Pelee", "photo": "./Images/marquimetro.jpg", "text": "Por mis venas corre el agua con un poco de rrrrron cola"},
         {"name": "BigJavs", "photo": "./Images/xavi1.jpg", "text": "El dia que el amor se convierta en alcohol, me lo tomare en serio"},
-        {"name": "Suja", "photo": "./Images/foto_suja_graciosa.jpg", "text": "El papá de de tu papá de tu papá 🦈//Me creo Piolin mi gata me reclama"},
+        {"name": "Suja", "photo": "./Images/suja.jpg", "text": "El papá de de tu papá de tu papá 🦈//Me creo Piolin mi gata me reclama"},
         {"name": "Joel", "photo": "./Images/joel1.jpg", "text": "Yo lo soñé"},
         {"name": "Monta", "photo": "./Images/monta.jpg", "text": "ESTO NO ES UN JUEGO! Hemos venido a competir. Solo para perracos🐕"},
         {"name": "Perez", "photo": "./Images/perez.jpg", "text": "Que vamos a hacer?? Follar, follar y follar"},
