@@ -1,4 +1,3 @@
-# Pages/04_Formulario.py
 import streamlit as st
 from pymongo import MongoClient
 import datetime
@@ -39,8 +38,8 @@ def main():
     accomplishments = {task: st.number_input(task, min_value=0, step=1, value=0) for task in points}
 
     if st.button("Enviar"):
-        # Calculate the total points
-        total_points = sum(points[task] * accomplishments[task] for task in accomplishments if accomplishments[task] > 0)
+        # Calculate the total points, including negative points
+        total_points = sum(points[task] * accomplishments[task] for task in accomplishments)
 
         # Get the current date and time
         current_date = datetime.datetime.now()
