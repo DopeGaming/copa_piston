@@ -141,11 +141,11 @@ def main():
     except Exception as e:
         st.error(f"Error al obtener la tabla de clasificación: {e}")
 
-    # Displaying the last 11 records as messages
-    st.subheader("Últimas 11 Entradas")
+    
+    st.subheader("Historial")
 
     try:
-        last_entries = collection.find().sort("date", -1).limit(11)
+        last_entries = collection.find().sort("date", -1).limit(30)
         last_entries_list = list(last_entries)
         
         if last_entries_list:
