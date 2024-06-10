@@ -140,5 +140,30 @@ def main():
     except Exception as e:
         st.error(f"Error al obtener la tabla de clasificación: {e}")
 
+    # Displaying the last 11 records
+    st.subheader("Historial")
+
+    try:
+        last_entries = collection.find().sort("date", -1).limit(11)
+        last_entries_list = list(last_entries)
+        
+        if last_entries_list:
+            last_entries_data = []
+            for entry in last_entries_list:
+                entry_data = {
+                    "Participante": entry["participant"],
+                    "Fecha": entry["date"].strftime("%Y-%m-%d %H:%M:%S"),
+                    "Total Puntos": entry["points"],
+                    **entry["details"]
+                }
+                last_entries_data.append(entry_data)
+            
+            last_entries_df = pd.DataFrame(last_entries_data)
+            st.dataframe(last_entries_df)
+        else:
+            st.write("No hay entradas recientes.")
+    except Exception as e:
+        st.error(f"Error al obtener las últimas entradas: {e}")
+
 if __name__ == "__main__":
     main()
