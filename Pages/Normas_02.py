@@ -14,7 +14,7 @@ def main():
 
 
     st.write("""
-    Esta competición veraniega arranca el lunes día 3 de junio 🗓 a las 8:00h ⏰ y finaliza el 15 🗓 de septiembre a las 8:00 ⏰.
+    Esta competición veraniega arranca el lunes día 3 de junio a las 8:00h ⏰ y finaliza el 15 de septiembre a las 8:00 ⏰.
     """)
 
     st.header("Normas de la Competición")
@@ -29,14 +29,15 @@ def main():
         - El campeón también recibirá un trofeo y una cena gratis patrocinada por los concursantes 🏆🍱💰
 
     2. **Registro de Puntos:**
-        - Cada participante, al finalizar su jornada, deberá poner por el grupo la cantidad de puntos que haya conseguido ese día y el total que lleve para llevar un control de la clasificación 📈📉.
-        - Se debe llevar un bloc de notas con el progreso del puntaje para evitar trampas.
+        - Cada participante, al finalizar su jornada, deberá poner por el grupo o web la cantidad de puntos que haya conseguido ese día y el total que lleve para llevar un control de la clasificación 📈📉.
         - La honestidad es crucial. En caso de sospecha, se reclamarán evidencias y/o explicaciones de donde han sacado los puntos 🧐📸.
+        - En caso de trampas o sabotaje no permitido se votara el castigo o una descalificación directa
 
     3. **Normas del Grupo:**
-        - Quien no quiera participar, debe abandonar el grupo 🚷.
-        - El grupo se usa solo para pasar los puntos. Cualquier otro mensaje (excepto dudas o preguntas sobre puntos) puede resultar en penalización ❌ o descalificación.
-        - El jugador descalificado debe abonar su parte del premio económico, trofeo y cena común.
+        - El grupo  de puntuaciones se usa solo para pasar los puntos. Cualquier otro mensaje (excepto dudas o preguntas sobre puntos) puede resultar en penalización si asi sale en las votaciones.
+        - El jugador que haya sido  descalificado debe abonar su parte del premio económico, trofeo y cena común.
+        -Las votaciones son absolutas a menos que se vote lo contrario en un caso especifico
+        -
 
     4. **Sistema de Puntos:**
     """)
@@ -48,8 +49,8 @@ def main():
     |---------------|------------|
     | Cubata        | 3 p        |
     | Chupito       | 1 p        |
-    | Cerveza       | 1 p        |
-    | Zumito/agua   | 1 p (exclusiva para Joel en ambiente de fiesta) |
+    | Cerveza       | 1 p (en compañia)       |
+    | Zumito/agua   | 2 p (exclusiva para Joel en ambiente de fiesta) |
     | Llegar a casa a + de las 7:00 | 1 p  |
     | Lio           | 3 p        |
     | Pico          | 2 p        |

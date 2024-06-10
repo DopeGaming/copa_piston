@@ -20,7 +20,7 @@ def main():
     st.title("Registrar Puntos Diarios 📋")
 
     participants = [
-        "Escoge Tu participante",  # Placeholder option
+        "Escoge Tu participante",
         "Alvarito", "Marco", "Xavi", "Suja", "Joel", "Monta", "Perez", "Cater", "Juan", "Jordi", "Folch"
     ]
 
@@ -29,13 +29,13 @@ def main():
     st.subheader("Sistema de Puntos")
 
     points = {
-        "Cubata": 3, "Chupito": 1, "Cerveza": 1, "Zumito/agua": 1, "Llegar a casa a + de las 7:00": 1,
+        "Cubata": 3, "Chupito": 1, "Cerveza": 1, "Zumito/agua": 2, "Llegar a casa a + de las 7:00": 1,
         "Lio": 3, "Pico": 2, "Sexo novia": 5, "Sexo el resto": 10, "Trio": 15,
         "Pico entre nosotros": -1, "Menor": -5, "Potar": -3, "Poner cuernos": -15, "Drogas duras": -5,
         "Deporte": 3, "Libro(10pag)": 1, "Hacerse a una ex o alguien a quien has querido mucho (preguntar) sino DESCALIFICADO DIRECTO": 0
     }
 
-    # Add a number input for each activity
+    
     accomplishments = {task: st.number_input(task, min_value=0, step=1, value=0) for task in points}
 
     if st.button("Enviar"):

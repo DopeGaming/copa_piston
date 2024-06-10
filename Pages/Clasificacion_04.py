@@ -83,7 +83,6 @@
 
 # SOLO ACTIVAR SI QUIERES ACTIVAR FUNCION DE ELIMINAR TODA LA BASE DE DATOS
 
-# Pages/04_Formulario.py
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
