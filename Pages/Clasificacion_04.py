@@ -86,6 +86,7 @@
 import streamlit as st
 from pymongo import MongoClient
 import pandas as pd
+import datetime
 
 def main():
     # MongoDB setup
@@ -140,26 +141,27 @@ def main():
     except Exception as e:
         st.error(f"Error al obtener la tabla de clasificación: {e}")
 
-    # Displaying the last 11 records
-    st.subheader("Historial")
+    # Displaying the last 11 records as messages
+    st.subheader("Últimas 11 Entradas")
 
     try:
         last_entries = collection.find().sort("date", -1).limit(11)
         last_entries_list = list(last_entries)
         
         if last_entries_list:
-            last_entries_data = []
             for entry in last_entries_list:
-                entry_data = {
-                    "Participante": entry["participant"],
-                    "Fecha": entry["date"].strftime("%Y-%m-%d %H:%M:%S"),
-                    "Total Puntos": entry["points"],
-                    **entry["details"]
-                }
-                last_entries_data.append(entry_data)
-            
-            last_entries_df = pd.DataFrame(last_entries_data)
-            st.dataframe(last_entries_df)
+                participant = entry["participant"]
+                date = entry["date"].strftime("%Y-%m-%d %H:%M:%S")
+                details = entry["details"]
+                
+                # Create a message for each entry
+                message_parts = []
+                for task, count in details.items():
+                    if count > 0:
+                        message_parts.append(f"{count} de {task}")
+
+                message = f"{participant} acaba de añadir {', '.join(message_parts)} el {date}."
+                st.write(message)
         else:
             st.write("No hay entradas recientes.")
     except Exception as e:
