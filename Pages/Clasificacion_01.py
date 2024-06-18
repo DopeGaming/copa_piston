@@ -103,7 +103,7 @@ def main():
     except Exception as e:
         st.error(f"Failed to connect to MongoDB: {e}")
 
-    st.title("Leaderboard 🏆")
+    st.title("Clasificación 🏆")
 
     # Aggregating points and details for each participant
     try:
@@ -135,6 +135,7 @@ def main():
                 })
             
             detailed_df = pd.DataFrame(detailed_data)
+            detailed_df.index = detailed_df.index + 1  # Set index to start from 1
             st.dataframe(detailed_df)
         else:
             st.write("No hay datos disponibles.")

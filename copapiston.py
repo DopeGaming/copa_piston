@@ -1,27 +1,15 @@
 import streamlit as st
 from PIL import Image
 import base64
-from Pages import Clasificacion_04, Formulario_05, Normas_02, Participantes_03, intro_01
+from Pages import Clasificacion_01, Formulario_02, Normas_03, Participantes_05, intro_06, fut_04
 
-# def get_base64_image(image_path):
-#     with open(image_path, "rb") as img_file:
-#         base64_str = base64.b64encode(img_file.read()).decode()
-#     return base64_str
-
-# st.set_page_config(
-#     page_title="Intro Copa Piston",
-#     page_icon="🍻🚗",
-#     layout="wide",
-#     initial_sidebar_state="expanded"
-# )
-
-# Sidebar navigation
 pages = {
-    "Intro": intro_01,
-    "Normas de la Copa Pistón 2024": Normas_02,
-    "Participantes": Participantes_03,
-    "Clasificación": Clasificacion_04,
-    "Formulario": Formulario_05
+    "Clasificación": Clasificacion_01,
+    "Formulario": Formulario_02,
+    "Normas de la Copa Pistón 2024": Normas_03,
+    "Piston Champions": fut_04,
+    "Participantes": Participantes_05,
+    "Sobre la competición": intro_06
 }
 
 selection = st.sidebar.radio("Navegación", list(pages.keys()))
