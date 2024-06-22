@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.formation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.field {
+    position: relative;
+    width: 60%;
+    background-image: url('/path/to/field.png'); /* Add your field image here */
+    background-size: cover;
+    padding-top: 66.66%; /* Maintain aspect ratio */
+    position: relative;
+}
+
+.position {
+    position: absolute;
+    width: 10%;
+    height: 15%;
+    border: 2px dashed #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+#GK { top: 80%; left: 45%; }
+#LB { top: 65%; left: 10%; }
+#CB1 { top: 65%; left: 35%; }
+#CB2 { top: 65%; left: 55%; }
+#RB { top: 65%; left: 80%; }
+#LM { top: 45%; left: 10%; }
+#CM1 { top: 45%; left: 35%; }
+#CM2 { top: 45%; left: 55%; }
+#RM { top: 45%; left: 80%; }
+#LW { top: 20%; left: 10%; }
+#ST { top: 20%; left: 45%; }
+#RW { top: 20%; left: 80%; }
+
+.bench {
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-card {
+    width: 48%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    cursor: move;
+}
+
+.player-card img {
+    width: 100%;
+    height: auto;
+}

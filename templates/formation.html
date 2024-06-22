@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Football Formation</title>
+</head>
+<body>
+    <div class="formation">
+        <div class="field">
+            <div class="position" id="GK"></div>
+            <div class="position" id="LB"></div>
+            <div class="position" id="CB1"></div>
+            <div class="position" id="CB2"></div>
+            <div class="position" id="RB"></div>
+            <div class="position" id="LM"></div>
+            <div class="position" id="CM1"></div>
+            <div class="position" id="CM2"></div>
+            <div class="position" id="RM"></div>
+            <div class="position" id="LW"></div>
+            <div class="position" id="ST"></div>
+            <div class="position" id="RW"></div>
+        </div>
+        <div class="bench">
+            {% for player in players %}
+                <div class="player-card" draggable="true" id="{{ player.id }}">
+                    <img src="{{ player.image }}" alt="{{ player.name }}">
+                    <p>{{ player.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
