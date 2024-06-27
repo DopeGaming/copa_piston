@@ -37,7 +37,7 @@ def main():
             5. Las sesiones de deporte que se hagan de manera consecutiva y quieran contar como dos sesiones diferentes, al ser dos actividades diferentes, ambas actividades juntas deberán sumar un mínimo de tiempo de 1h45.
             6. Ejemplo de caso especial para deportes de 30 min: si Jordi sale a nadar 40 minutos y luego corre 1 hora, se le sumarán 2 sesiones de deporte. Por otro lado, si solo quiere correr 30 minutos y nadar 30, solo le contará como 1 sesión.
         - Cualquier particpante con novia obtendra 5 puntos por sexo la primera vez en un dia pero 2 puntos las siguientes veces que se realice en ese dia.
-        -Las clases de Xavi solo podra contar máxima 1 al dia da igual cuantas haga.
+        - Las clases de Xavi solo podra contar máxima 1 al dia da igual cuantas haga.
     """)
 
     st.header("Normas del Grupo")
