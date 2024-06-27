@@ -94,7 +94,7 @@ def main():
     password = "Arsic969!"
     cluster_address = "cluster0.ckteqa9.mongodb.net"
     connection_string = f"mongodb+srv://{username}:{password}@{cluster_address}/?retryWrites=true&w=majority"
-    
+
     try:
         client = MongoClient(connection_string)
         db = client["copa_piston"]
@@ -104,6 +104,14 @@ def main():
         st.error(f"Failed to connect to MongoDB: {e}")
 
     st.title("Clasificación 🏆")
+
+    # Define the costs for each drink
+    drink_costs = {
+        "Chupito": 2,
+        "Cubata": 7,
+        "Cerveza": 3,
+        "Zumito/agua": 3
+    }
 
     # Aggregating points and details for each participant
     try:
@@ -127,13 +135,17 @@ def main():
                 participant = entry['_id']
                 total_points = entry['total_points']
                 details = pd.DataFrame(entry['details']).sum().to_dict()  # Summing up the details
+
+                # Calculate total spending on drinks
+                total_spent = sum(details.get(drink, 0) * cost for drink, cost in drink_costs.items())
                 
                 detailed_data.append({
                     "Participante": participant,
                     "Total Puntos": total_points,
+                    "Total Gastado en Bebidas (€)": total_spent,
                     **details
                 })
-            
+
             detailed_df = pd.DataFrame(detailed_data)
             detailed_df.index = detailed_df.index + 1  # Set index to start from 1
             st.dataframe(detailed_df)
@@ -142,19 +154,18 @@ def main():
     except Exception as e:
         st.error(f"Error al obtener la tabla de clasificación: {e}")
 
-    
     st.subheader("Historial")
 
     try:
         last_entries = collection.find().sort("date", -1).limit(30)
         last_entries_list = list(last_entries)
-        
+
         if last_entries_list:
             for entry in last_entries_list:
                 participant = entry["participant"]
                 date = entry["date"].strftime("%Y-%m-%d %H:%M:%S")
                 details = entry["details"]
-                
+
                 # Create a message for each entry
                 message_parts = []
                 for task, count in details.items():
